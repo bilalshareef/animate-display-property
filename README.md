@@ -17,14 +17,14 @@ To use the plugin, you need to include the js and css files of the plugin in you
 Typically, to hide an element, we will get the element object and update display property with a value `none`. Here, use the hide method of the plugin which takes two mandatory arguments(element and animation effect).
 
 ```js
-var elemToHide = document.querySelector('.content-wrap');
+var elemToHide = document.querySelector('.box');
 ADP.hide(elemToHide, 'fade');
 ```
 
 To show an element, use the show method of the plugin which is similar to the hide method.
 
 ```js
-var elemToShow = document.querySelector('.content-wrap');
+var elemToShow = document.querySelector('.box');
 ADP.show(elemToShow, 'fade');
 ```
 
@@ -37,7 +37,7 @@ The functionality of the show method is that it first removes the `adp-hide` cla
 The show and hide methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of the animation effect.
 
 ```js
-var elemToShow = document.querySelector('.content-wrap');
+var elemToShow = document.querySelector('.box');
 ADP.show(elemToShow, 'fade', function() {
     console.log('Callback fired');
 });
@@ -100,11 +100,11 @@ If you are not using any of the animation effects provided in the `adp.css` file
 You can also use two different animation effects for showing and hiding the element.
 
 ```js
-var elemToHide = document.querySelector('.content-wrap');
+var elemToHide = document.querySelector('.box');
 ADP.hide(elemToHide, 'fade'); // fade effect is used when hiding the element.
 ```
 
 ```js
-var elemToShow = document.querySelector('.content-wrap');
+var elemToShow = document.querySelector('.box');
 ADP.show(elemToShow, 'slide-left'); // slide-left effect is used when showing up the element.
 ```

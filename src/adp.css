@@ -66,6 +66,40 @@
 }
 /* Slide Left End */
 
+/* Slide Right Start */
+@keyframes slide-right-adp-show {
+    0% {
+        transform: translate3d(100%,0,0);
+    }
+    100% {
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes slide-right-adp-hide {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    100% {
+        transform: translate3d(100%,0,0);
+    }
+}
+
+.slide-right-adp-show, .slide-right-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.slide-right-adp-show {
+    animation-name: slide-right-adp-show;
+}
+
+.slide-right-adp-hide {
+    animation-name: slide-right-adp-hide;
+}
+/* Slide Right End */
+
 .adp-hide {
     display: none !important;
 }

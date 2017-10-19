@@ -20,10 +20,10 @@ var ADP = (function() {
         var animationEndListener = function() {
             element.classList.remove(animationName + '-adp-show');
             runCallback(callback);
-            element.removeEventListener('animationend', animationEndListener);
+            element.removeEventListener(animationEndEvent, animationEndListener);
         };
         
-        element.addEventListener('animationend', animationEndListener);
+        element.addEventListener(animationEndEvent, animationEndListener);
         element.classList.remove('adp-hide');
         element.classList.add(animationName + '-adp-show');
     };
@@ -39,12 +39,25 @@ var ADP = (function() {
             element.classList.add('adp-hide');
             element.classList.remove(animationName + '-adp-hide');
             runCallback(callback);
-            element.removeEventListener('animationend', animationEndListener);
+            element.removeEventListener(animationEndEvent, animationEndListener);
         };
         
-        element.addEventListener('animationend', animationEndListener);
+        element.addEventListener(animationEndEvent, animationEndListener);
         element.classList.add(animationName + '-adp-hide');
     };
+    
+    var getEventName = function() {
+        var element = document.createElement('div');
+        if(element.style.webkitAnimation) {
+            return 'webkitAnimationEnd';
+        } else if(element.style.mozAnimation) {
+            return 'mozAnimationEnd';
+        } else {
+            return 'animationend';
+        }
+    };
+    
+    var animationEndEvent = getEventName();
     
     return {
         show: show,
