@@ -14,7 +14,7 @@ To use the plugin, you need to include the js and css files of the plugin in you
 <script type="text/javascript" src="path/to/adp.js"></script>
 ```
 
-Typically, to hide an element, we will get the element object and update display property with a value 'none'. Here, use the hide method of the plugin which takes two mandatory arguments(element and animation effect).
+Typically, to hide an element, we will get the element object and update display property with a value `none`. Here, use the hide method of the plugin which takes two mandatory arguments(element and animation effect).
 
 ```js
 var elemToHide = document.querySelector('.content-wrap');
@@ -49,7 +49,7 @@ Note that if the element is already visible and if you call the show method for 
 
 You can apply any kind of animation effect using this plugin and `adp.css` file contains some basic animation effects.
 
-You can create your own animation effects and use them with the plugin. The following is the CSS for a sample fade animation effect.
+You can also create your own animation effects and use them with the plugin. The following is the CSS for a sample fade animation effect.
 
 ```css
 @keyframes fade-adp-show {
@@ -85,9 +85,9 @@ You can create your own animation effects and use them with the plugin. The foll
 }
 ```
 
-In the above code, the name of the animation is `fade` and you need to add two keyframe rules(one for the hiding effect and other for showing effect). The syntax for the animation names are [animation-name]-adp-show and [animation-name]-adp-hide.
+In the above code, the name of the animation is `fade` and you need to add two keyframe rules(one for the hiding effect and other for showing effect). The syntax for the animation names are `[animation-name]-adp-show` and `[animation-name]-adp-hide`.
 
-Then, you need to write animation styles for two classes([animation-name]-adp-show and [animation-name]-adp-hide) which will be used by the `adp.js` file to perform the animations.
+Then, you need to write animation styles for two classes(`[animation-name]-adp-show` and `[animation-name]-adp-hide`) which will be used by the `adp.js` file to perform the animations.
 
 If you are not using any of the animation effects provided in the `adp.css` file, then feel free to ignore the file completely. In that case, you have to add the following CSS code somewhere in your styles.
 
