@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Animate Display Property</title>
+        <link type="text/css" rel="stylesheet" href="adp.css">
+        <style type="text/css">
+            .content-wrap {
+                height: 100px;
+                width: 400px;
+                background-color: rgba(255, 30, 30, 0.6);
+                margin-top: 10px;
+            }
+            
+            .content-wrap p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <button id="show-button" type="button">Show</button>
+            <button id="hide-button" type="button">Hide</button>
+        </div>
+        
+        <div class="content-wrap adp-hide">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        
+        <script type="text/javascript" src="adp.js"></script>
+        <script type="text/javascript">
+            document.getElementById('show-button').addEventListener('click', function() {
+                ADP.show(document.querySelector('.content-wrap'), 'fade', function() {
+                    console.log('Show Callback');
+                });
+            });
+            document.getElementById('hide-button').addEventListener('click', function() {
+                ADP.hide(document.querySelector('.content-wrap'), 'fade', function() {
+                    console.log('Hide Callback');
+                });
+            });
+        </script>
+    </body>
+</html>

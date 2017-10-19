@@ -1,0 +1,71 @@
+/* Fade Start */
+@keyframes fade-adp-show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-adp-hide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-adp-show, .fade-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.fade-adp-show {
+    animation-name: fade-adp-show;
+}
+
+.fade-adp-hide {
+    animation-name: fade-adp-hide;
+}
+/* Fade End */
+
+/* Slide Left Start */
+@keyframes slide-left-adp-show {
+    0% {
+        transform: translate3d(-100%,0,0);
+    }
+    100% {
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes slide-left-adp-hide {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    100% {
+        transform: translate3d(-100%,0,0);
+    }
+}
+
+.slide-left-adp-show, .slide-left-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.slide-left-adp-show {
+    animation-name: slide-left-adp-show;
+}
+
+.slide-left-adp-hide {
+    animation-name: slide-left-adp-hide;
+}
+/* Slide Left End */
+
+.adp-hide {
+    display: none !important;
+}
