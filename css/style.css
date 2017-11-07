@@ -1,0 +1,166 @@
+/* CSS Resets */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Common Styles */
+body {
+    font-size: 16px;
+    font-family: 'Saira Semi Condensed', sans-serif;
+    color: #1E1B18;
+}
+.button-1 {
+    text-decoration: none;
+    color: #333538;
+    border: 2px solid #333538;
+    border-radius: 5px;
+    padding: 0 20px;
+    line-height: 36px;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-transition: background-color .3s ease-out, color .3s ease-out;
+    -moz-transition: background-color .3s ease-out, color .3s ease-out;
+    -o-transition: background-color .3s ease-out, color .3s ease-out;
+    transition: background-color .3s ease-out, color .3s ease-out;
+}
+.button-1:hover {
+    background-color: #333538;
+    color: #FF6384;
+}
+.button-2 {
+    text-decoration: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 0 20px;
+    line-height: 36px;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #333538;
+    border: 0;
+    -webkit-transition: box-shadow .3s ease-out;
+    -moz-transition: box-shadow .3s ease-out;
+    -o-transition: box-shadow .3s ease-out;
+    transition: box-shadow .3s ease-out;
+}
+.button-2:hover {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Main Styles */
+.home-wrapper {
+    background: rgb(220, 220, 220);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.adp-logo-wrapper {
+    height: 100px;
+}
+.adp-logo-wrapper h1 {
+    font-size: 50px;
+    line-height: 100px;
+}
+.home-wrapper p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.controls-wrapper {
+    display: flex;
+    margin-top: 40px;
+}
+.controls-wrapper select {
+    height: 40px;
+    font: inherit;
+    border: 2px solid black;
+    padding: 5px;
+    margin-right: 20px;
+}
+.controls-wrapper button {
+    margin-right: 10px;
+}
+.controls-wrapper button:last-child {
+    margin-right: auto;
+}
+.horizontal-separator {
+    height: 1px;
+    width: 90%;
+    margin: 50px 0;
+    background: -webkit-linear-gradient(0deg, transparent, #333538, transparent);
+    background: -o-linear-gradient(0deg, transparent, #333538, transparent);
+    background: -moz-linear-gradient(0deg, transparent, #333538, transparent);
+    background: linear-gradient(90deg, transparent, #333538, transparent);
+}
+.buttons-wrapper {
+    display: flex
+}
+.buttons-wrapper button {
+    margin-right: 20px;
+}
+.buttons-wrapper button:last-child {
+    margin-right: auto;
+}
+.button-2.blue {
+    background-color: #36A2EB;
+}
+.button-2.green {
+    background-color: #4BC0C0;
+}
+.button-2.red {
+    background-color: #FF6384;
+}
+.credit-info {
+    position: absolute;
+    bottom: 10px;
+}
+.credit-info a {
+    text-decoration: none;
+    color: #36A2EB;
+}
