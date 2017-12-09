@@ -1,4 +1,4 @@
-# animate-display-property
+# Animate Display Property
 A JavaScript micro plugin to add transition effects for the CSS display property. This plugin uses CSS3 animations to acheive transition effects when an element's display property changes.
 
 As you all know that CSS3 transitions doesn't work for the display property and we switch between `display: block/inline/flex` and `display: none` to show and hide elements. I found it difficult in my projects to show and hide elements with transition effects. So I wrote this micro plugin to hide and show elements with effects.
@@ -108,3 +108,7 @@ ADP.hide(elemToHide, 'fade'); // fade effect is used when hiding the element.
 var elemToShow = document.querySelector('.box');
 ADP.show(elemToShow, 'slide-left'); // slide-left effect is used when showing up the element.
 ```
+
+## License
+
+[GPL v3](LICENSE.md)
