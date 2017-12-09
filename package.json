@@ -7,12 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp clean && gulp build"
   },
+  "keywords": [
+    "Animate Display Property"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bilalshareef/animate-display-property.git"
   },
-  "author": "Mohammed Bilal Shareef",
-  "license": "ISC",
+  "author": "Mohammed Bilal Shareef <bilalshareef.h@gmail.com> (https://bilalshareef.github.io)",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/bilalshareef/animate-display-property/issues"
   },
