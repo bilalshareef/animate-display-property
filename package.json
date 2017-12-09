@@ -1,0 +1,27 @@
+{
+  "name": "animate-display-property",
+  "version": "1.0.0",
+  "description": "A JavaScript micro plugin to add transition effects for the CSS display property. This plugin uses CSS3 animations to acheive transition effects when an element's display property changes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp clean && gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilalshareef/animate-display-property.git"
+  },
+  "author": "Mohammed Bilal Shareef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilalshareef/animate-display-property/issues"
+  },
+  "homepage": "https://github.com/bilalshareef/animate-display-property#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.9"
+  }
+}
