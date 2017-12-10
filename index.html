@@ -7,6 +7,7 @@
         <meta name="author" content="Mohammed Bilal Shareef">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/adp.min.css">
         <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:400,600" rel="stylesheet">
     </head>
     <body>
@@ -16,7 +17,7 @@
             </div>
             <p>A JavaScript micro plugin to add transition effects for the CSS display property.</p>
             <div class="controls-wrapper">
-                <select>
+                <select id="effects-select">
                     <option value="fade">Fade</option>
                     <option value="slide-left">Slide Left</option>
                     <option value="slide-right">Slide Right</option>
@@ -31,18 +32,19 @@
                     <option value="flip-left">Flip Left</option>
                     <option value="flip-right">Flip Right</option>
                 </select>
-                <button type="button" class="button-1">Show</button>
-                <button type="button" class="button-1">Hide</button>
+                <button type="button" id="show-button" class="button-1">Show</button>
+                <button type="button" id="hide-button" class="button-1">Hide</button>
             </div>
             <div class="horizontal-separator"></div>
             <div class="buttons-wrapper">
-                <button type="button" class="button-2 blue">Download</button>
-                <button type="button" class="button-2">Docs</button>
-                <button type="button" class="button-2 red">Github</button>
+                <a href="https://github.com/bilalshareef/animate-display-property/releases/download/v1.0.0/animate-display-property-1.0.0.zip" class="button-2 blue">Download</a>
+                <a href="documentation.html" class="button-2">Docs</a>
+                <a href="https://github.com/bilalshareef/animate-display-property" target="_blank" class="button-2 red">Github</a>
             </div>
             <div class="credit-info">Made by <a href="https://bilalshareef.github.io/" target="_blank">Mohammed Bilal Shareef</a></div>
         </div>
         
+        <script type="text/javascript" src="js/adp.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>
