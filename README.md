@@ -5,6 +5,16 @@ As you all know that CSS3 transitions doesn't work for the display property and 
 
 Ofcourse, there are many libraries out there to acheive this and there are some CSS tricks as well like changing element's height, changing opacity, etc. But I wanted a precise solution with minimal code.
 
+You can view the demo at the official [webiste](https://bilalshareef.github.io/animate-display-property/) of the plugin.
+
+## Installation
+
+You can download the latest version of the plugin from [Github Releases](https://github.com/bilalshareef/animate-display-property/releases/latest) or you can install from npm using the following command.
+
+```bash
+npm install animate-display-property --save
+```
+
 ## Quick Start
 
 To use the plugin, you need to include the js and css files of the plugin in your html document.
