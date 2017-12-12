@@ -144,7 +144,7 @@ body {
 .buttons-wrapper a {
     margin-right: 20px;
 }
-.buttons-wrapper button:last-child {
+.buttons-wrapper a:last-child {
     margin-right: auto;
 }
 .button-2.blue {
@@ -163,4 +163,73 @@ body {
 .credit-info a {
     text-decoration: none;
     color: #36A2EB;
+}
+
+@media (max-width: 650px) {
+    .adp-logo-wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+    .home-wrapper p {
+        width: 80%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .adp-logo-wrapper h1 {
+        font-size: 28px;
+    }
+    .controls-wrapper select {
+        margin-right: 10px;
+    }
+    .buttons-wrapper a {
+        margin-right: 10px;
+    }
+}
+
+@media (max-height: 500px) {
+    .adp-logo-wrapper {
+        height: 80px;
+    }
+    .adp-logo-wrapper h1 {
+        line-height: 80px;
+    }
+    .controls-wrapper {
+        margin-top: 20px;
+    }
+    .horizontal-separator {
+        margin: 30px 0;
+    }
+}
+
+@media (max-height: 400px) {
+    .adp-logo-wrapper {
+        height: 50px;
+    }
+    .adp-logo-wrapper h1 {
+        line-height: 50px;
+    }
+    .controls-wrapper {
+        margin-top: 15px;
+    }
+    .horizontal-separator {
+        margin: 20px 0;
+    }
+}
+
+@media (max-height: 300px) {
+    .adp-logo-wrapper {
+        height: 32px;
+    }
+    .adp-logo-wrapper h1 {
+        line-height: 32px;
+        font-size: 28px;
+    }
+    .controls-wrapper {
+        margin-top: 0px;
+    }
+    .horizontal-separator {
+        margin: 10px 0;
+    }
 }
