@@ -164,7 +164,67 @@ body {
     text-decoration: none;
     color: #36A2EB;
 }
+.page-top {
+    background-color: rgb(220, 220, 220);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+.page-top .adp-logo-wrapper {
+    height: 60px;
+    margin-bottom: 30px;
+}
+.page-top .adp-logo-wrapper h1 {
+    line-height: 60px;
+}
+.page-wrapper {
+    width: 100%;
+}
+.sub-page-wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+h2 {
+    font-size: 36px;
+    color: #36A2EB;
+    margin: 20px 0;
+}
+h3 {
+    font-size: 30px;
+    color: #FF6384;
+    margin: 15px 0;
+}
+p {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+p a {
+    color: #36A2EB;
+    text-decoration: none;
+}
+p a:hover {
+    text-decoration: underline;
+}
+p span.code {
+    background-color: #f0f0f0;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.page-wrapper .credit-info {
+    position: static;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
+@media (max-width: 1024px) {
+    .sub-page-wrapper {
+        width: 90%;
+    }
+}
 @media (max-width: 650px) {
     .adp-logo-wrapper h1 {
         font-size: 36px;
@@ -173,6 +233,9 @@ body {
     .home-wrapper p {
         width: 80%;
         font-size: 16px;
+    }
+    .page-top {
+        padding: 20px 0;
     }
 }
 
