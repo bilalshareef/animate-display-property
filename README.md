@@ -42,9 +42,16 @@ The functionality of the hide method is that it first adds the animation effect 
 
 The functionality of the show method is that it first removes the `adp-hide` class from the element and then adds the animation effect. This plugin makes use of the `animationend` event to fire the callbacks which we will see in the next section.
 
+There is also a toggle method which can be used to toggle between show and hide. The usage is same as the show and hide methods.
+
+```js
+var elemToToggle = document.querySelector('.box');
+ADP.toggle(elemToToggle, 'fade');
+```
+
 ## Callbacks
 
-The show and hide methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of the animation effect.
+The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of the animation effect.
 
 ```js
 var elemToShow = document.querySelector('.box');
