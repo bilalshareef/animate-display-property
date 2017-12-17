@@ -59,6 +59,7 @@ body {
     display: inline-block;
     font-size: 18px;
     cursor: pointer;
+    outline: none;
     -webkit-transition: background-color .3s ease-out, color .3s ease-out;
     -moz-transition: background-color .3s ease-out, color .3s ease-out;
     -o-transition: background-color .3s ease-out, color .3s ease-out;
@@ -122,6 +123,7 @@ body {
     border: 2px solid black;
     padding: 5px;
     margin-right: 20px;
+    outline: none;
 }
 .controls-wrapper button {
     margin-right: 10px;
