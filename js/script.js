@@ -11,6 +11,10 @@
         ADP.hide(effectElement, currentEffect);
     };
     
+    var toggleElement = function () {
+        ADP.toggle(effectElement, currentEffect);
+    };
+    
     var handleEffectChange = function (event) {
         currentEffect = event.currentTarget.value;
         effectElement.classList.add('adp-hide');
@@ -21,6 +25,7 @@
         document.getElementById('effects-select').addEventListener('change', handleEffectChange);
         document.getElementById('show-button').addEventListener('click', showElement);
         document.getElementById('hide-button').addEventListener('click', hideElement);
+        document.getElementById('toggle-button').addEventListener('click', toggleElement);
     };
     
     var onLoad = function () {
