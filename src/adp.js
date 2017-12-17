@@ -46,6 +46,14 @@ var ADP = (function() {
         element.classList.add(animationName + '-adp-hide');
     };
     
+    var toggle = function(element, animationName, callback) {
+        if(isElementVisible(element)) {
+            hide(element, animationName, callback);
+        } else {
+            show(element, animationName, callback);
+        }
+    };
+    
     var getEventName = function() {
         var element = document.createElement('div');
         if(element.style.webkitAnimation) {
@@ -61,7 +69,8 @@ var ADP = (function() {
     
     return {
         show: show,
-        hide: hide
+        hide: hide,
+        toggle: toggle
     };
     
 }());
