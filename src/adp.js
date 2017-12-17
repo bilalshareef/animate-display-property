@@ -1,23 +1,23 @@
-var ADP = (function() {
+var ADP = (function () {
     
-    var isElementVisible = function(element) {
+    var isElementVisible = function (element) {
         return (element.classList.contains('adp-hide')) ? false : true;
     };
     
-    var runCallback = function(callback) {
-        if(callback) {
+    var runCallback = function (callback) {
+        if (callback) {
             callback();
         }
     };
     
-    var show = function(element, animationName, callback) {
-        if(isElementVisible(element)) {
+    var show = function (element, animationName, callback) {
+        if (isElementVisible(element)) {
             // The element is already showing up.
             runCallback(callback);
             return;
         }
         
-        var animationEndListener = function() {
+        var animationEndListener = function () {
             element.classList.remove(animationName + '-adp-show');
             runCallback(callback);
             element.removeEventListener(animationEndEvent, animationEndListener);
@@ -28,14 +28,14 @@ var ADP = (function() {
         element.classList.add(animationName + '-adp-show');
     };
     
-    var hide = function(element, animationName, callback) {
-        if(!isElementVisible(element)) {
+    var hide = function (element, animationName, callback) {
+        if (!isElementVisible(element)) {
             // The element is hidden already.
             runCallback(callback);
             return;
         }
         
-        var animationEndListener = function() {
+        var animationEndListener = function () {
             element.classList.add('adp-hide');
             element.classList.remove(animationName + '-adp-hide');
             runCallback(callback);
@@ -46,19 +46,19 @@ var ADP = (function() {
         element.classList.add(animationName + '-adp-hide');
     };
     
-    var toggle = function(element, animationName, callback) {
-        if(isElementVisible(element)) {
+    var toggle = function (element, animationName, callback) {
+        if (isElementVisible(element)) {
             hide(element, animationName, callback);
         } else {
             show(element, animationName, callback);
         }
     };
     
-    var getEventName = function() {
+    var getEventName = function () {
         var element = document.createElement('div');
-        if(element.style.webkitAnimation) {
+        if (element.style.webkitAnimation) {
             return 'webkitAnimationEnd';
-        } else if(element.style.mozAnimation) {
+        } else if (element.style.mozAnimation) {
             return 'mozAnimationEnd';
         } else {
             return 'animationend';
