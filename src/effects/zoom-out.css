@@ -1,0 +1,37 @@
+/* Zoom Out Start */
+@keyframes zoom-out-adp-show {
+    0% {
+        transform: scale(0.5, 0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-out-adp-hide {
+    0% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5, 0.5);
+        opacity: 0;
+    }
+}
+
+.zoom-out-adp-show, .zoom-out-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
+.zoom-out-adp-show {
+    animation-name: zoom-out-adp-show;
+}
+
+.zoom-out-adp-hide {
+    animation-name: zoom-out-adp-hide;
+}
+/* Zoom Out End */

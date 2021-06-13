@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp clean && gulp build"
+    "build": "gulp copy && gulp concat-css && gulp minify",
+    "clean": "gulp clean",
+    "clean-build": "npm run clean && npm run build"
   },
   "keywords": [
     "Animate Display Property",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "gulp-uglifycss": "^1.0.9"
