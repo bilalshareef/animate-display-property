@@ -4,6 +4,7 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var uglifycss = require("gulp-uglifycss");
 var rename = require("gulp-rename");
+var browserSync = require("browser-sync").create();
 
 var config = {
     distFolder: "dist"
@@ -64,3 +65,24 @@ gulp.task("minify-js", function() {
 });
 
 gulp.task("minify", ["minify-effects", "minify-css", "minify-js"]);
+
+// Development related scripts
+var browserSyncConfig = {
+    server: {
+        baseDir: "./"
+    },
+    startPath: "/test"
+};
+
+gulp.task("browser-sync", function() {
+    browserSync.init(browserSyncConfig);
+});
+
+gulp.task("reload",function() {
+    browserSync.reload();
+});
+
+gulp.task("watch", ["browser-sync"], function () {
+    var filesToWatch = ["src/**/*", "test/index.html"];
+    gulp.watch(filesToWatch, ["reload"]);
+});

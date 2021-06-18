@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Animate Display Property</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            body {
+                font-size: 16px;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+                color: #1E1B18;
+            }
+            .button-1 {
+                text-decoration: none;
+                color: #333538;
+                border: 2px solid #333538;
+                border-radius: 5px;
+                padding: 0 20px;
+                line-height: 36px;
+                display: inline-block;
+                font-size: 18px;
+                cursor: pointer;
+                outline: none;
+                -webkit-transition: background-color .3s ease-out, color .3s ease-out;
+                -moz-transition: background-color .3s ease-out, color .3s ease-out;
+                -o-transition: background-color .3s ease-out, color .3s ease-out;
+                transition: background-color .3s ease-out, color .3s ease-out;
+            }
+            .button-1:hover {
+                background-color: #333538;
+                color: #FF6384;
+            }
+            .home-wrapper {
+                background: rgb(220, 220, 220);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .adp-logo-wrapper {
+                height: 100px;
+            }
+            .adp-logo-wrapper h1 {
+                font-size: 50px;
+                line-height: 100px;
+            }
+            .controls-wrapper {
+                display: flex;
+                margin-top: 40px;
+            }
+            .controls-wrapper select {
+                height: 40px;
+                font: inherit;
+                border: 2px solid black;
+                padding: 5px;
+                margin-right: 20px;
+                outline: none;
+            }
+            .controls-wrapper button {
+                margin-right: 10px;
+            }
+            .controls-wrapper button:last-child {
+                margin-right: auto;
+            }
+        </style>
+        <link type="text/css" rel="stylesheet" href="../src/effects/fade.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/flip-down.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/flip-left.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/flip-right.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/flip-up.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/rotate-left.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/rotate-right.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/slide-down.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/slide-left.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/slide-right.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/slide-up.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/zoom-in.css">
+        <link type="text/css" rel="stylesheet" href="../src/effects/zoom-out.css">
+        <link type="text/css" rel="stylesheet" href="../src/adp-hide.css">
+
+        <script type="text/javascript" src="../src/adp.js"></script>
+    </head>
+    <body>
+        <div class="home-wrapper">
+            <div class="adp-logo-wrapper">
+                <h1>Animate Display Property</h1>
+            </div>
+            <div class="controls-wrapper">
+                <select id="effects-select">
+                    <option value="fade">Fade</option>
+                    <option value="slide-left">Slide Left</option>
+                    <option value="slide-right">Slide Right</option>
+                    <option value="slide-up">Slide Up</option>
+                    <option value="slide-down">Slide Down</option>
+                    <option value="zoom-in">Zoom In</option>
+                    <option value="zoom-out">Zoom Out</option>
+                    <option value="rotate-left">Rotate Left</option>
+                    <option value="rotate-right">Rotate Right</option>
+                    <option value="flip-up">Flip Up</option>
+                    <option value="flip-down">Flip Down</option>
+                    <option value="flip-left">Flip Left</option>
+                    <option value="flip-right">Flip Right</option>
+                </select>
+                <button type="button" id="show-button" class="button-1">Show</button>
+                <button type="button" id="hide-button" class="button-1">Hide</button>
+                <button type="button" id="toggle-button" class="button-1">Toggle</button>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var effectElement = document.querySelector('.adp-logo-wrapper h1');
+            var currentEffect = 'fade';
+
+            var showElement = function () {
+                ADP.show(effectElement, currentEffect);
+            };
+
+            var hideElement = function () {
+                ADP.hide(effectElement, currentEffect);
+            };
+
+            var toggleElement = function () {
+                ADP.toggle(effectElement, currentEffect);
+            };
+
+            var handleEffectChange = function (event) {
+                currentEffect = event.currentTarget.value;
+                effectElement.classList.add('adp-hide');
+                showElement();
+            };
+
+            var attachListeners = function () {
+                document.getElementById('effects-select').addEventListener('change', handleEffectChange);
+                document.getElementById('show-button').addEventListener('click', showElement);
+                document.getElementById('hide-button').addEventListener('click', hideElement);
+                document.getElementById('toggle-button').addEventListener('click', toggleElement);
+            };
+
+            var onLoad = function () {
+                attachListeners();
+            };
+
+            window.addEventListener('load', onLoad);
+        </script>
+    </body>
+</html>
