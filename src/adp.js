@@ -73,12 +73,12 @@ var ADP = (function () {
 
     var show = function (element, effect, callback) {
         if (inStack(element, 'show')) {
-            // The element currently being animated to show. So do nothing.
+            // The element is currently being animated to show. So do nothing.
             return;
         }
 
         if (inStack(element, 'hide')) {
-            // The element currently being animated to hide. Cancel hide animation and proceed with show.
+            // The element is currently being animated to hide. Cancel hide animation and proceed with show.
             cancelAnimation(element, 'show');
         }
 
@@ -110,12 +110,12 @@ var ADP = (function () {
 
     var hide = function (element, effect, callback) {
         if (inStack(element, 'hide')) {
-            // The element currently being animated to hide. So do nothing.
+            // The element is currently being animated to hide. So do nothing.
             return;
         }
 
         if (inStack(element, 'show')) {
-            // The element currently being animated to show. Cancel show animation and proceed with hide.
+            // The element is currently being animated to show. Cancel show animation and proceed with hide.
             cancelAnimation(element, 'hide');
         }
 
@@ -146,8 +146,14 @@ var ADP = (function () {
     };
 
     var toggle = function (element, effect, callback) {
-        if (inStack(element, 'show') || inStack(element, 'hide')) {
-            // The element is currently being animated. So do nothing.
+        if (inStack(element, 'show')) {
+            // The element is currently being animated to show. So perform hide.
+            hide(element, effect, callback);
+            return;
+        }
+        if (inStack(element, 'hide')) {
+            // The element is currently being animated to hide. So perform show.
+            show(element, effect, callback);
             return;
         }
 
