@@ -115,15 +115,21 @@
             var currentEffect = 'fade';
 
             var showElement = function () {
-                ADP.show(effectElement, currentEffect);
+                ADP.show(effectElement, currentEffect, function (state) {
+                    console.log("Show callback invoked. State - " + state);
+                });
             };
 
             var hideElement = function () {
-                ADP.hide(effectElement, currentEffect);
+                ADP.hide(effectElement, currentEffect, function (state) {
+                    console.log("Hide callback invoked. State - " + state);
+                });
             };
 
             var toggleElement = function () {
-                ADP.toggle(effectElement, currentEffect);
+                ADP.toggle(effectElement, currentEffect, function (state) {
+                    console.log("Toggle callback invoked. State - " + state);
+                });
             };
 
             var handleEffectChange = function (event) {
