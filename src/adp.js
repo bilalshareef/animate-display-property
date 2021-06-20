@@ -57,7 +57,7 @@ var ADP = (function () {
     };
 
     function isElementVisible(element) {
-        return (element.classList.contains('adp-hide')) ? false : true;
+        return (element.classList.contains("adp-hide")) ? false : true;
     };
 
     function runCallback(callback, state) {
@@ -71,26 +71,26 @@ var ADP = (function () {
         // Get currently running animation details.
         var currentAnimation = getFromStack(element);
 
-        element.classList.remove(currentAnimation.effect + '-adp-show');
-        element.classList.remove(currentAnimation.effect + '-adp-hide');
+        element.classList.remove(currentAnimation.effect + "-adp-show");
+        element.classList.remove(currentAnimation.effect + "-adp-hide");
         runCallback(currentAnimation.callback, states.ANIMATION_CANCELLED);
         removeFromStack(element);
 
-        if (nextAnimationType == 'show') {
-            element.classList.add('adp-hide');
+        if (nextAnimationType == "show") {
+            element.classList.add("adp-hide");
         }
     };
 
     function show(element, effect, callback) {
-        if (inStack(element, 'show')) {
+        if (inStack(element, "show")) {
             // The element is currently being animated to show. So do nothing.
             runCallback(callback, states.SHOW_ALREADY_IN_PROGRESS);
             return;
         }
 
-        if (inStack(element, 'hide')) {
+        if (inStack(element, "hide")) {
             // The element is currently being animated to hide. Cancel hide animation and proceed with show.
-            cancelAnimation(element, 'show');
+            cancelAnimation(element, "show");
         }
 
         if (isElementVisible(element)) {
@@ -100,36 +100,36 @@ var ADP = (function () {
         }
 
         function animationEndListener() {
-            if (inStack(element, 'show')) {
+            if (inStack(element, "show")) {
                 // The animation hasn't been canceled.
                 removeFromStack(element);
-                element.classList.remove(effect + '-adp-show');
+                element.classList.remove(effect + "-adp-show");
                 runCallback(callback, states.ANIMATION_COMPLETE);
             }
             element.removeEventListener(animationEndEvent, animationEndListener);
         };
 
         element.addEventListener(animationEndEvent, animationEndListener);
-        element.classList.remove('adp-hide');
-        element.classList.add(effect + '-adp-show');
+        element.classList.remove("adp-hide");
+        element.classList.add(effect + "-adp-show");
         pushToStack({
             element: element,
             effect: effect,
             callback: callback,
-            animationType: 'show'
+            animationType: "show"
         });
     };
 
     function hide(element, effect, callback) {
-        if (inStack(element, 'hide')) {
+        if (inStack(element, "hide")) {
             // The element is currently being animated to hide. So do nothing.
             runCallback(callback, states.HIDE_ALREADY_IN_PROGRESS);
             return;
         }
 
-        if (inStack(element, 'show')) {
+        if (inStack(element, "show")) {
             // The element is currently being animated to show. Cancel show animation and proceed with hide.
-            cancelAnimation(element, 'hide');
+            cancelAnimation(element, "hide");
         }
 
         if (!isElementVisible(element)) {
@@ -139,33 +139,33 @@ var ADP = (function () {
         }
 
         function animationEndListener() {
-            if (inStack(element, 'hide')) {
+            if (inStack(element, "hide")) {
                 // The animation hasn't been canceled.
                 removeFromStack(element);
-                element.classList.add('adp-hide');
-                element.classList.remove(effect + '-adp-hide');
+                element.classList.add("adp-hide");
+                element.classList.remove(effect + "-adp-hide");
                 runCallback(callback, states.ANIMATION_COMPLETE);
             }
             element.removeEventListener(animationEndEvent, animationEndListener);
         };
 
         element.addEventListener(animationEndEvent, animationEndListener);
-        element.classList.add(effect + '-adp-hide');
+        element.classList.add(effect + "-adp-hide");
         pushToStack({
             element: element,
             effect: effect,
             callback: callback,
-            animationType: 'hide'
+            animationType: "hide"
         });
     };
 
     function toggle(element, effect, callback) {
-        if (inStack(element, 'show')) {
+        if (inStack(element, "show")) {
             // The element is currently being animated to show. So perform hide.
             hide(element, effect, callback);
             return;
         }
-        if (inStack(element, 'hide')) {
+        if (inStack(element, "hide")) {
             // The element is currently being animated to hide. So perform show.
             show(element, effect, callback);
             return;
@@ -179,13 +179,13 @@ var ADP = (function () {
     };
 
     function getEventName() {
-        var element = document.createElement('div');
+        var element = document.createElement("div");
         if (element.style.webkitAnimation) {
-            return 'webkitAnimationEnd';
+            return "webkitAnimationEnd";
         } else if (element.style.mozAnimation) {
-            return 'mozAnimationEnd';
+            return "mozAnimationEnd";
         } else {
-            return 'animationend';
+            return "animationend";
         }
     };
 
