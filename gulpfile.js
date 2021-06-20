@@ -71,7 +71,7 @@ var browserSyncConfig = {
     server: {
         baseDir: "./"
     },
-    startPath: "/test"
+    startPath: "/test/index.html?files=src"
 };
 
 gulp.task("browser-sync", function() {
@@ -82,7 +82,12 @@ gulp.task("reload",function() {
     browserSync.reload();
 });
 
-gulp.task("watch", ["browser-sync"], function () {
+gulp.task("test", ["browser-sync"], function () {
     var filesToWatch = ["src/**/*", "test/index.html"];
     gulp.watch(filesToWatch, ["reload"]);
+});
+
+gulp.task("test:dist", function() {
+    browserSyncConfig.startPath = "/test/index.html?files=dist";
+    browserSync.init(browserSyncConfig);
 });

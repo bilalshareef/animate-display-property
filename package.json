@@ -4,7 +4,8 @@
   "description": "A JavaScript micro plugin to add transition effects for the CSS display property. This plugin uses CSS3 animations to acheive transition effects when an element's display property changes.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp watch",
+    "test": "gulp test",
+    "test:dist": "gulp test:dist",
     "build": "gulp copy && gulp concat-css && gulp minify",
     "clean": "gulp clean",
     "clean-build": "npm run clean && npm run build"
