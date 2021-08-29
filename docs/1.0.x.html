@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106873852-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)};
+            gtag('js', new Date());
+            gtag('config', 'UA-106873852-1');
+        </script>
+        <title>Documentation - Animate Display Property</title>
+        <meta name="description" content="Documentation of Animate Display Property plugin which lists the details on how to download and use the plugin. Also sample code snippets included in the page to create new animation effects.">
+        <meta name="keywords" content="Documentation of Animate Display Property, Docs of Animate Display Property, ADP docs, ADP user guide, Animate Display Property installation, CSS display transition docs, CSS display animation docs">
+        <meta name="author" content="Mohammed Bilal Shareef">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="../css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="page-top">
+            <div class="adp-logo-wrapper">
+                <h1>Animate Display Property</h1>
+            </div>
+            <div class="buttons-wrapper">
+                <a href="https://github.com/bilalshareef/animate-display-property/releases/download/v1.0.1/animate-display-property-1.0.1.zip" class="button-2 blue">Download</a>
+                <a href="../index.html" class="button-2">Demo</a>
+                <a href="https://github.com/bilalshareef/animate-display-property" target="_blank" class="button-2 red">Github</a>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="sub-page-wrapper">
+                <div class="other-releases">Looking for docs of other releases? <a href="versions.html">Click Here</a></div>
+                <h2>Documentation(v1.0.x)</h2>
+                <p>A JavaScript micro plugin to add transition effects for the CSS display property. This plugin uses CSS3 animations to acheive transition effects when an element's display property changes.</p>
+                <p>As you all know that CSS3 transitions doesn't work for the display property and we switch between <span class="code">display: block/inline/flex</span> and <span class="code">display: none</span> to show and hide elements. I found it difficult in my projects to show and hide elements with transition effects. So I wrote this micro plugin to hide and show elements with effects.</p>
+                <p>Ofcourse, there are many libraries out there to acheive this and there are some CSS tricks as well like changing element's height, changing opacity, etc. But I wanted a precise solution with minimal code.</p>
+                <p>You can view the demo of the plugin <a href="../index.html">here</a>.</p>
+
+                <h3>Installation</h3>
+                <p>You can download the latest version of the plugin from <a href="https://github.com/bilalshareef/animate-display-property/releases/latest" target="_blank">Github Releases</a> or you can install from npm using the following command.</p>
+                <pre>
+                    <code>npm install animate-display-property --save</code>
+                </pre>
+
+                <h3>Quick Start</h3>
+                <p>To use the plugin, you need to include the js and css files of the plugin in your html document.</p>
+                <pre>
+                    <code class="html">
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;path/to/adp.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;path/to/adp.js&quot;&gt;&lt;/script&gt;
+                    </code>
+                </pre>
+                <p>Typically, to hide an element, we will get the element object and update display property with a value <span class="code">none</span>. Here, use the hide method of the plugin which takes two mandatory arguments(element and animation effect).</p>
+                <pre>
+                    <code class="js">
+var elemToHide = document.querySelector('.box');
+ADP.hide(elemToHide, 'fade');
+                    </code>
+                </pre>
+                <p>To show an element, use the show method of the plugin which is similar to the hide method.</p>
+                <pre>
+                    <code class="js">
+var elemToShow = document.querySelector('.box');
+ADP.show(elemToShow, 'fade');
+                    </code>
+                </pre>
+                <p>The functionality of the hide method is that it first adds the animation effect for the element and when the animation completes <span class="code">adp-hide</span> class is added which has display property with value <span class="code">none</span>.</p>
+                <p>The functionality of the show method is that it first removes the <span class="code">adp-hide</span> class from the element and then adds the animation effect. This plugin makes use of the <span class="code">animationend</span> event to fire the callbacks which we will see in the next section.</p>
+                <p>There is also a toggle method which can be used to toggle between show and hide. The usage is same as the show and hide methods.</p>
+                <pre>
+                    <code class="js">
+var elemToToggle = document.querySelector('.box');
+ADP.toggle(elemToToggle, 'fade');
+                    </code>
+                </pre>
+
+                <h3>Callbacks</h3>
+                <p>The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of the animation effect.</p>
+                <pre>
+                    <code class="js">
+var elemToShow = document.querySelector('.box');
+ADP.show(elemToShow, 'fade', function() {
+    console.log('Callback fired');
+});
+                    </code>
+                </pre>
+                <p>Note that if the element is already visible and if you call the show method for that element, then callback will be fired eventhough the display property's value has not changed. The same applies to the hide method as well.</p>
+
+                <h3>Effects</h3>
+                <p>You can apply any kind of animation effect using this plugin and <span class="code">adp.css</span> file contains some basic animation effects.</p>
+                <p>You can also create your own animation effects and use them with the plugin. The following is the CSS for a sample fade animation effect.</p>
+                <pre>
+                    <code class="css">
+@keyframes fade-adp-show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-adp-hide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-adp-show, .fade-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.fade-adp-show {
+    animation-name: fade-adp-show;
+}
+
+.fade-adp-hide {
+    animation-name: fade-adp-hide;
+}
+                    </code>
+                </pre>
+                <p>In the above code, the name of the animation is <span class="code">fade</span> and you need to add two keyframe rules(one for the hiding effect and other for showing effect). The syntax for the animation names are <span class="code">[animation-name]-adp-show</span> and <span class="code">[animation-name]-adp-hide</span>.</p>
+                <p>Then, you need to write animation styles for two classes(<span class="code">[animation-name]-adp-show</span> and <span class="code">[animation-name]-adp-hide</span>) which will be used by the <span class="code">adp.js</span> file to perform the animations</p>
+                <p>If you are not using any of the animation effects provided in the <span class="code">adp.css</span> file, then feel free to ignore the file completely. In that case, you have to add the following CSS code somewhere in your styles.</p>
+                <pre>
+                    <code class="css">
+.adp-hide {
+    display: none !important;
+}
+                    </code>
+                </pre>
+                <p>You can also use two different animation effects for showing and hiding the element.</p>
+                <pre>
+                    <code class="js">
+var elemToHide = document.querySelector('.box');
+ADP.hide(elemToHide, 'fade'); // fade effect is used when hiding the element.
+                    </code>
+                </pre>
+                <pre>
+                    <code class="js">
+var elemToShow = document.querySelector('.box');
+ADP.show(elemToShow, 'slide-left'); // slide-left effect is used when showing up the element.
+                    </code>
+                </pre>
+
+                <h3>License</h3>
+                <p><a href="https://github.com/bilalshareef/animate-display-property/blob/master/LICENSE.md" target="_blank">GPL v3</a></p>
+            </div>
+            <div class="credit-info">Made by <a href="https://bilalshareef.github.io/" target="_blank">Mohammed Bilal Shareef</a></div>
+        </div>
+
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

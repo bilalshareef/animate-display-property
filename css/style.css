@@ -189,6 +189,37 @@ body {
     margin: 0 auto;
     padding: 20px 0;
 }
+.other-releases {
+    background-color: #333538;
+    padding: 0 20px;
+    line-height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.versions-list {
+    margin-left: 100px;
+}
+.states-list {
+    margin: 0 0 15px 50px;
+}
+.versions-list, .states-list {
+    list-style: disc;
+}
+.versions-list li, .states-list li {
+    font-size: 18px;
+    line-height: 30px;
+}
+.states-list li b {
+    font-weight: bold;
+}
+.other-releases a, .versions-list li a {
+    color: #FF6384;
+    text-decoration: none;
+}
+.other-releases a:hover, .versions-list li a:hover {
+    text-decoration: underline;
+}
 h2 {
     font-size: 36px;
     color: #36A2EB;

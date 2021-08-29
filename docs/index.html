@@ -7,7 +7,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments)};
             gtag('js', new Date());
-            
             gtag('config', 'UA-106873852-1');
         </script>
         <title>Documentation - Animate Display Property</title>
@@ -15,7 +14,7 @@
         <meta name="keywords" content="Documentation of Animate Display Property, Docs of Animate Display Property, ADP docs, ADP user guide, Animate Display Property installation, CSS display transition docs, CSS display animation docs">
         <meta name="author" content="Mohammed Bilal Shareef">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="../css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:400,600" rel="stylesheet">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -27,24 +26,25 @@
             </div>
             <div class="buttons-wrapper">
                 <a href="https://github.com/bilalshareef/animate-display-property/releases/download/v1.0.1/animate-display-property-1.0.1.zip" class="button-2 blue">Download</a>
-                <a href="index.html" class="button-2">Demo</a>
+                <a href="../index.html" class="button-2">Demo</a>
                 <a href="https://github.com/bilalshareef/animate-display-property" target="_blank" class="button-2 red">Github</a>
             </div>
         </div>
         <div class="page-wrapper">
             <div class="sub-page-wrapper">
-                <h2>Documentation</h2>
+                <div class="other-releases">Looking for docs of other releases? <a href="versions.html">Click Here</a></div>
+                <h2>Documentation(v2.0.0)</h2>
                 <p>A JavaScript micro plugin to add transition effects for the CSS display property. This plugin uses CSS3 animations to acheive transition effects when an element's display property changes.</p>
                 <p>As you all know that CSS3 transitions doesn't work for the display property and we switch between <span class="code">display: block/inline/flex</span> and <span class="code">display: none</span> to show and hide elements. I found it difficult in my projects to show and hide elements with transition effects. So I wrote this micro plugin to hide and show elements with effects.</p>
                 <p>Ofcourse, there are many libraries out there to acheive this and there are some CSS tricks as well like changing element's height, changing opacity, etc. But I wanted a precise solution with minimal code.</p>
-                <p>You can view the demo of the plugin <a href="index.html">here</a>.</p>
-                
+                <p>You can view the demo of the plugin <a href="../index.html">here</a>.</p>
+
                 <h3>Installation</h3>
                 <p>You can download the latest version of the plugin from <a href="https://github.com/bilalshareef/animate-display-property/releases/latest" target="_blank">Github Releases</a> or you can install from npm using the following command.</p>
                 <pre>
                     <code>npm install animate-display-property --save</code>
                 </pre>
-                
+
                 <h3>Quick Start</h3>
                 <p>To use the plugin, you need to include the js and css files of the plugin in your html document.</p>
                 <pre>
@@ -76,19 +76,29 @@ var elemToToggle = document.querySelector('.box');
 ADP.toggle(elemToToggle, 'fade');
                     </code>
                 </pre>
-                
+                <p>If an element is currently being animated to hide and show method is invoked for the element, then hide animation for the element will be cancelled and show animation will begin. This is same in vice versa as well.</p>
+                <p>Similarly, if an element is already visible and show method is called for the element, then animation will not be performed. This is same for the vice-versa case as well.</p>
+
                 <h3>Callbacks</h3>
-                <p>The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of the animation effect.</p>
+                <p>The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of show/hide.</p>
                 <pre>
                     <code class="js">
 var elemToShow = document.querySelector('.box');
-ADP.show(elemToShow, 'fade', function() {
-    console.log('Callback fired');
+ADP.show(elemToShow, 'fade', function(state) {
+    console.log('Callback fired with ' + state);
 });
                     </code>
                 </pre>
-                <p>Note that if the element is already visible and if you call the show method for that element, then callback will be fired eventhough the display property's value has not changed. The same applies to the hide method as well.</p>
-                
+                <p>The callback function takes an argument called state. The state represents what happened to the element when show/hide was called. The different states are as follows.</p>
+                <ul class="states-list">
+                    <li><b>animation-complete</b> - The intended action(show/hide) has completed with proper animation.</li>
+                    <li><b>already-visible</b> - This state will be returned when the element is already visible and show method is called for the element.</li>
+                    <li><b>show-already-in-progress</b> - This state will be returned when show animation is already in progress and show method is invoked for the element.</li>
+                    <li><b>already-hidden</b> - This state will be returned when the element is already hidden and hide method is called for the element.</li>
+                    <li><b>hide-already-in-progress</b> - This state will be returned when hide animation is already in progress and hide method is invoked for the element.</li>
+                    <li><b>animation-cancelled</b> - This state will be returned when an animation is cancelled. Cancellation of animation happens when an animation is in progress for showing/hiding the element and the opposite action is performed on the element. <b>Example</b> - Hide method is called for an element and when the hiding animation is in progress, show method is called for the same element. In this case, hide animation will be cancelled midway and callback of hide method will be invoked with animation-cancelled state. Once hide aimation is cancelled, show animation will be performed on the element.</li>
+                </ul>
+
                 <h3>Effects</h3>
                 <p>You can apply any kind of animation effect using this plugin and <span class="code">adp.css</span> file contains some basic animation effects.</p>
                 <p>You can also create your own animation effects and use them with the plugin. The following is the CSS for a sample fade animation effect.</p>
@@ -150,13 +160,13 @@ var elemToShow = document.querySelector('.box');
 ADP.show(elemToShow, 'slide-left'); // slide-left effect is used when showing up the element.
                     </code>
                 </pre>
-                
+
                 <h3>License</h3>
                 <p><a href="https://github.com/bilalshareef/animate-display-property/blob/master/LICENSE.md" target="_blank">GPL v3</a></p>
             </div>
             <div class="credit-info">Made by <a href="https://bilalshareef.github.io/" target="_blank">Mohammed Bilal Shareef</a></div>
         </div>
-        
+
         <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>
