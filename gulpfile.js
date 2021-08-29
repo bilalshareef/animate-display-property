@@ -10,8 +10,9 @@ var config = {
     distFolder: "dist"
 };
 
-gulp.task("clean", function() {
+gulp.task("clean", function(done) {
     del([config.distFolder]);
+    done();
 });
 
 gulp.task("copy-adp-hide", function() {
@@ -32,7 +33,7 @@ gulp.task("copy-js", function() {
     ]).pipe(gulp.dest(config.distFolder));
 });
 
-gulp.task("copy", ["copy-adp-hide", "copy-effects", "copy-js"]);
+gulp.task("copy", gulp.series("copy-adp-hide", "copy-effects", "copy-js"));
 
 gulp.task("concat-css", function () {
     return gulp.src([
@@ -64,7 +65,7 @@ gulp.task("minify-js", function() {
         .pipe(gulp.dest(config.distFolder));
 });
 
-gulp.task("minify", ["minify-effects", "minify-css", "minify-js"]);
+gulp.task("minify", gulp.series("minify-effects", "minify-css", "minify-js"));
 
 // Development related scripts
 var browserSyncConfig = {
@@ -74,18 +75,20 @@ var browserSyncConfig = {
     startPath: "/test/index.html?files=src"
 };
 
-gulp.task("browser-sync", function() {
+gulp.task("browser-sync", function(done) {
     browserSync.init(browserSyncConfig);
+    done();
 });
 
-gulp.task("reload",function() {
+gulp.task("reload", function(done) {
     browserSync.reload();
+    done();
 });
 
-gulp.task("test", ["browser-sync"], function () {
+gulp.task("test", gulp.series("browser-sync", function () {
     var filesToWatch = ["src/**/*", "test/index.html"];
-    gulp.watch(filesToWatch, ["reload"]);
-});
+    gulp.watch(filesToWatch, gulp.series("reload"));
+}));
 
 gulp.task("test:dist", function() {
     browserSyncConfig.startPath = "/test/index.html?files=dist";
