@@ -49,18 +49,35 @@ var elemToToggle = document.querySelector('.box');
 ADP.toggle(elemToToggle, 'fade');
 ```
 
+If an element is currently being animated to hide and show method is invoked for the element, then hide animation for the element will be cancelled and show animation will begin. This is same in vice versa as well.
+
+Similarly, if an element is already visible and show method is called for the element, then animation will not be performed. This is same for the vice versa case as well.
+
 ## Callbacks
 
-The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of the animation effect.
+The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of show/hide.
+
 
 ```js
 var elemToShow = document.querySelector('.box');
-ADP.show(elemToShow, 'fade', function() {
-    console.log('Callback fired');
+ADP.show(elemToShow, 'fade', function (state) {
+    console.log('Callback fired with ' + state);
 });
 ```
 
-Note that if the element is already visible and if you call the show method for that element, then callback will be fired eventhough the display property's value has not changed. The same applies to the hide method as well.
+The callback function takes an argument called state. The state represents what happened to the element when show/hide was called. The different states are as follows.
+
+* **animation-complete** - The intended action(show/hide) has completed with proper animation.
+
+* **already-visible** - This state will be returned when the element is already visible and show method is called for the element.
+
+* **show-already-in-progress** - This state will be returned when show animation is already in progress and show method is invoked for the element.
+
+* **already-hidden** - This state will be returned when the element is already hidden and hide method is called for the element.
+
+* **hide-already-in-progress** - This state will be returned when hide animation is already in progress and hide method is invoked for the element.
+
+* **animation-cancelled** - This state will be returned when an animation is cancelled. Cancellation of animation happens when an animation is in progress for showing/hiding the element and the opposite action is performed on the element. **Example** - Hide method is called for an element and when the hiding animation is in progress, show method is called for the same element. In this case, hide animation will be cancelled midway and callback of hide method will be invoked with animation-cancelled state. Once hide aimation is cancelled, show animation will be performed on the element.
 
 ## Effects
 
