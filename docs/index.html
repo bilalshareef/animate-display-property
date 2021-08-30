@@ -77,14 +77,14 @@ ADP.toggle(elemToToggle, 'fade');
                     </code>
                 </pre>
                 <p>If an element is currently being animated to hide and show method is invoked for the element, then hide animation for the element will be cancelled and show animation will begin. This is same in vice versa as well.</p>
-                <p>Similarly, if an element is already visible and show method is called for the element, then animation will not be performed. This is same for the vice-versa case as well.</p>
+                <p>Similarly, if an element is already visible and show method is called for the element, then animation will not be performed. This is same for the vice versa case as well.</p>
 
                 <h3>Callbacks</h3>
                 <p>The show, hide and toggle methods of the plugin also take an optional third parameter which is a callback function. This callback function will be fired on completion of show/hide.</p>
                 <pre>
                     <code class="js">
 var elemToShow = document.querySelector('.box');
-ADP.show(elemToShow, 'fade', function(state) {
+ADP.show(elemToShow, 'fade', function (state) {
     console.log('Callback fired with ' + state);
 });
                     </code>
