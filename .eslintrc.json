@@ -23,6 +23,10 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-trailing-spaces": "error",
+        "space-before-blocks": "error",
+        "keyword-spacing": "error",
+        "arrow-spacing": "error"
     }
 }

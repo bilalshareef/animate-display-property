@@ -8,7 +8,7 @@
     "test:dist": "gulp test:dist",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
-    "build": "gulp copy && gulp concat-css && gulp minify",
+    "build": "npm run lint && gulp copy && gulp concat-css && gulp minify",
     "clean": "gulp clean",
     "clean-build": "npm run clean && npm run build"
   },
