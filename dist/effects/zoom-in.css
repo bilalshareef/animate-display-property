@@ -1,0 +1,37 @@
+/* Zoom In Start */
+@keyframes zoom-in-adp-show {
+    0% {
+        transform: scale(1.5, 1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-in-adp-hide {
+    0% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5, 1.5);
+        opacity: 0;
+    }
+}
+
+.zoom-in-adp-show, .zoom-in-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
+.zoom-in-adp-show {
+    animation-name: zoom-in-adp-show;
+}
+
+.zoom-in-adp-hide {
+    animation-name: zoom-in-adp-hide;
+}
+/* Zoom In End */

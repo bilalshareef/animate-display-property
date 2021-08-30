@@ -1,0 +1,1 @@
+@keyframes fade-adp-show{0%{opacity:0}100%{opacity:1}}@keyframes fade-adp-hide{0%{opacity:1}100%{opacity:0}}.fade-adp-show,.fade-adp-hide{animation-duration:.5s;animation-fill-mode:both;animation-timing-function:ease}.fade-adp-show{animation-name:fade-adp-show}.fade-adp-hide{animation-name:fade-adp-hide}

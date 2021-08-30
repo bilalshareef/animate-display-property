@@ -1,0 +1,37 @@
+/* Flip Up Start */
+@keyframes flip-up-adp-show {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flip-up-adp-hide {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+.flip-up-adp-show, .flip-up-adp-hide {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
+.flip-up-adp-show {
+    animation-name: flip-up-adp-show;
+}
+
+.flip-up-adp-hide {
+    animation-name: flip-up-adp-hide;
+}
+/* Flip Up End */
