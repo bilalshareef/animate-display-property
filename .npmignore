@@ -1,2 +1,4 @@
 src/
+test/
+.eslintrc.json
 gulpfile.js
