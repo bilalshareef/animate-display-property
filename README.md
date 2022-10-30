@@ -145,4 +145,4 @@ ADP.show(elemToShow, 'slide-left'); // slide-left effect is used when showing up
 
 ## License
 
-[GPL v3](LICENSE.md)
+[MIT](LICENSE.md)
