@@ -27,7 +27,7 @@
     "url": "git+https://github.com/bilalshareef/animate-display-property.git"
   },
   "author": "Mohammed Bilal Shareef <bilalshareef.h@gmail.com> (https://bilalshareef.github.io)",
-  "license": "GPLv3",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bilalshareef/animate-display-property/issues"
   },
