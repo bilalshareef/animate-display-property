@@ -33,7 +33,7 @@
   },
   "homepage": "https://bilalshareef.github.io/animate-display-property/",
   "devDependencies": {
-    "browser-sync": "^2.27.5",
+    "browser-sync": "^2.27.10",
     "del": "^6.0.0",
     "eslint": "^7.32.0",
     "gulp": "^4.0.2",
