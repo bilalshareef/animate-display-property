@@ -1,3 +1,7 @@
+## Version 2.0.1
+* Fixed NPM audit issues.
+* Changed license from GPLv3 to MIT.
+
 ## Version 2.0.0
 * Added logic to cancel currently running animation if show is invoked when hide is being performed or vice versa.
 * In callbacks, added state parameter which represents what happened to the element when show/hide was called.
